@@ -1,0 +1,30 @@
+{
+  "name": "my-webpage",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "npm-run-all --parallel dev:sass dev:react",
+    "dev:react": "webpack --watch",
+    "dev:sass": "node-sass --watch src/css/main.scss build/css/style.css",
+    "start": "node server.js",
+    "build": "npm-run-all --parallel build:sass build:react",
+    "build:react": "webpack -p",
+    "build:sass": "node-sass src/css/main.scss build/css/style.css",
+    "migrate": "npm-run-all -s migrate-down migrate-up",
+    "migrate-down": "db-migrate reset --config ./database/config/database.json --migrations-dir ./database/config/migrations",
+    "migrate-up": "db-migrate up --config ./database/config/database.json --migrations-dir ./database/config/migrations",
+    "lint": "npm-run-all -s lint-front lint-routes lint-models",
+    "lint-front": "eslint src",
+    "lint-back": "npm-run-all -s lint-routes lint-models",
+    "lint-routes": "eslint routes",
+    "lint-models": "eslint models",
+    "supertest": "node server_tests/index_test.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/judashgriff/huli-video-platform"
+  },
+  "author": "",
+  "license": "ISC"
+}

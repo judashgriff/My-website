@@ -1,0 +1,45 @@
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    overflow: hidden;
+}
+
+body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-top: 30px;
+}
+
+main {
+    height: 600px;
+    width: 90vw;
+    border: red 10px dotted;
+    border-radius: 10%;
+    display: grid;
+    grid-template-rows: 1fr 4fr 1fr;
+}
+
+.header, .body, .footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font: 2rem bold;
+
+}
+
+.header {
+    grid-area: "header";
+    background-color: pink;
+}
+
+.body {
+    grid-area: "body";
+    background-color: blue;
+} 
+
+.footer {
+    grid-area: "footer";
+    background-color: lightgreen;
+}
